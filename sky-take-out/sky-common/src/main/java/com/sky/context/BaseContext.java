@@ -1,5 +1,6 @@
 package com.sky.context;
 
+// 在同一线程中存储公共变量
 public class BaseContext {
 
     public static ThreadLocal<Long> threadLocal = new ThreadLocal<>();

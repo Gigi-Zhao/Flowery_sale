@@ -3,6 +3,7 @@ server:
 
 spring:
   profiles:
+    # dev 配置文件生效
     active: dev
   main:
     allow-circular-references: true
@@ -31,8 +32,8 @@ logging:
 
 sky:
   jwt:
-    # 设置jwt签名加密时使用的秘钥
-    admin-secret-key: itcast
+    # 设置jwt签名加密时使用的秘钥（格式由驼峰变为“-”）
+    admin-secret-key: gigi
     # 设置jwt过期时间
     admin-ttl: 7200000
     # 设置前端传递过来的令牌名称

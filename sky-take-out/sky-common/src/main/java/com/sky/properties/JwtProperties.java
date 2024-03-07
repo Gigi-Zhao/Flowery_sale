@@ -5,8 +5,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationProperties(prefix = "sky.jwt")
-@Data
+@ConfigurationProperties(prefix = "sky.jwt")   // 注入application.yml文件中对应的prefix配置
+@Data   // Lombok库：使用@Data注解来自动生成Java Bean类的常用方法（getter/setter、equals和hashCode、toString方法）
 public class JwtProperties {
 
     /**
