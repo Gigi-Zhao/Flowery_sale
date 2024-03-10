@@ -88,13 +88,13 @@ public class EmployeeServiceImpl implements EmployeeService {
         employee.setPassword(DigestUtils.md5DigestAsHex(PasswordConstant.DEFAULT_PASSWORD.getBytes()));
 
         //3. 设置当前记录的创建时间和修改时间
-        employee.setCreateTime(LocalDateTime.now());
+        /*employee.setCreateTime(LocalDateTime.now());
         employee.setUpdateTime(LocalDateTime.now());
 
         //4. 设置当前记录创建人id和修改人id
         //TODO 后期需要改为当前登录用户的id
         employee.setCreateUser(BaseContext.getCurrentId());
-        employee.setUpdateUser(BaseContext.getCurrentId());
+        employee.setUpdateUser(BaseContext.getCurrentId());*/
 
         // 调用mapper函数
         employeeMapper.insert(employee);
@@ -169,8 +169,8 @@ public class EmployeeServiceImpl implements EmployeeService {
         BeanUtils.copyProperties(employeeDTO, employee);
 
         // 修改 updateTime/updateUser
-        employee.setUpdateTime(LocalDateTime.now());
-        employee.setUpdateUser(BaseContext.getCurrentId());  // 从拦截器定义的线程变量中获得
+        /*employee.setUpdateTime(LocalDateTime.now());
+        employee.setUpdateUser(BaseContext.getCurrentId());  // 从拦截器定义的线程变量中获得*/
 
         employeeMapper.update(employee);
     }
