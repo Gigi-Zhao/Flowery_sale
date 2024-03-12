@@ -90,7 +90,7 @@ public class CategoryController {
     }
 
     /**
-     * 根据类型查询分类
+     * 根据类型查询分类：用于菜品管理页面，“菜品分类”的下拉菜单
      * @param type
      * @return
      */
