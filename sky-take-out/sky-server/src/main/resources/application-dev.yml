@@ -16,3 +16,8 @@ sky:
   alioss:
     endpoint: https://oss-cn-beijing.aliyuncs.com
     bucket-name: takeout-judy
+
+  # 微信小程序配置
+  wechat:
+    appid: wxd9af4dead48f0ebb
+    secret: c4c43312777de9291d6ff95b1d8e6cce
