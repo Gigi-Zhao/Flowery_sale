@@ -1,0 +1,61 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    # dev 配置文件生效，之后若有其他配置文件，在这里切换即可（如 prod:生产环境）
+    active: dev
+  main:
+    allow-circular-references: true
+  datasource:
+    druid:
+      driver-class-name: ${flow.datasource.driver-class-name}
+      url: jdbc:mysql://${flow.datasource.host}:${flow.datasource.port}/${flow.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      username: ${flow.datasource.username}
+      password: ${flow.datasource.password}
+  redis:
+    host: ${flow.redis.host}
+    port: ${flow.redis.port}
+    database: ${flow.redis.database}
+
+mybatis:
+  #mapper配置文件
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.flow.entity
+  configuration:
+    #开启驼峰命名
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    com:
+      flow:
+        mapper: debug
+        service: info
+        controller: info
+
+flow:
+  jwt:
+    # 设置管理端jtw
+    # 设置jwt签名加密时使用的秘钥（格式由驼峰变为“-”）
+    admin-secret-key: gigi
+    # 设置jwt过期时间
+    admin-ttl: 7200000
+    # 设置前端传递过来的令牌名称
+    admin-token-name: token
+
+    # 设置用户端jtw
+    # 设置jwt签名加密时使用的秘钥（格式由驼峰变为“-”）
+    user-secret-key: gigi
+    # 设置jwt过期时间
+    user-ttl: 7200000
+    # 设置前端传递过来的令牌名称
+    user-token-name: authentication
+
+  alioss:
+    endpoint: ${flow.alioss.endpoint}
+    bucket-name: ${flow.alioss.bucket-name}
+
+  wechat:
+    appid: ${flow.wechat.appid}
+    secret: ${flow.wechat.secret}
